@@ -73,4 +73,8 @@ MPG123_DEPENDENCIES += libtool
 MPG123_CONF_OPT += --with-modules --with-module-suffix=.so
 endif
 
+# This hack disables LARGEFILE support for MPG123. Handling _FILE_OFFSET_BITS seems
+# to be quite a mess. See mpg123.h header file.
+MPG123_CONF_OPT += CFLAGS="-DMPG123_NO_LARGENAME -pipe -Os"
+
 $(eval $(autotools-package))
