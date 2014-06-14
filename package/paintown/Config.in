@@ -1,0 +1,15 @@
+config BR2_PACKAGE_PAINTOWN
+	bool "Paintown"
+	select BR2_PACKAGE_FREETYPE
+	select BR2_PACKAGE_LIBMAD
+	select BR2_PACKAGE_LIBOGG
+	select BR2_PACKAGE_LIBVORBIS
+	select BR2_PACKAGE_MPG123
+	select BR2_PACKAGE_SDL
+	select BR2_PACKAGE_SDL_IMAGE
+	select BR2_PACKAGE_SDL_MIXER
+	select BR2_PACKAGE_SDL_NET
+	help
+	  Paintown is a free and open source 2-d fighting game
+
+	  http://paintown.sourceforge.net/
