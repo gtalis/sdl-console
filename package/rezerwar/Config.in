@@ -1,0 +1,9 @@
+config BR2_PACKAGE_REZERWAR
+	bool "Rezerwar"
+	select BR2_PACKAGE_SDL
+	select BR2_PACKAGE_SDL_MIXER
+	help
+	  rezerwar is a puzzle game that could be described as the illegitimate
+	  child of a known tetromino game and the average pipe game
+
+	  http://tamentis.com/projects/rezerwar/
