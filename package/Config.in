@@ -1,15 +1,25 @@
-menu "Target packages"
+menu "Games packages"
 
-menu "Games"
+menu "Platformer & Shoot'em'up"
 	source "package/c-dogs/Config.in"
-	source "package/doom-wad/Config.in"
-	source "package/gnuchess/Config.in"
-	source "package/lbreakout2/Config.in"
-	source "package/ltris/Config.in"
 	source "package/opentyrian/Config.in"
 	source "package/opentyrian-data/Config.in"
-	source "package/prboom/Config.in"
+endmenu
+
+menu "Board Games"
+	source "package/gnuchess/Config.in"
+endmenu
+
+menu "Puzzle"
+	source "package/lbreakout2/Config.in"
+	source "package/ltris/Config.in"
 	source "package/rubix/Config.in"
 endmenu
+
+menu "First Person Shooter"
+	source "package/doom-wad/Config.in"
+	source "package/prboom/Config.in"
+endmenu
+
 
 endmenu
