@@ -1,0 +1,12 @@
+config BR2_PACKAGE_C_DOGS
+	bool "c-dogs"
+	select BR2_PACKAGE_SDL
+	select BR2_PACKAGE_SDL_MIXER
+	select BR2_PACKAGE_SDL_NET
+	help
+	  C-Dogs SDL is a port of the old DOS arcade game C-Dogs to modern
+	  operating systems. C-Dogs is an arcade shoot-em-up which lets players
+	  work alone or co-operativly during missions, and against each other
+	  in the "dogfight" deathmatch mode.
+
+	  http://prboom.sourceforge.net/
