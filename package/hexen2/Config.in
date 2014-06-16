@@ -1,0 +1,10 @@
+config BR2_PACKAGE_HEXEN2
+	bool "Hexen2"
+	select BR2_PACKAGE_SDL
+	select BR2_PACKAGE_SDL_MIXER
+	help
+	  Hexen2: The Hammer of Thyrion project is a cross-platform source port
+	  effort of Raven Software's class based shooter game Hexen II and its
+	  multiplayer extension HexenWorld
+
+	  http://uhexen2.sourceforge.net/
