@@ -1,0 +1,7 @@
+config BR2_PACKAGE_HEXEN2_PAK
+	bool "Shareware Hexen2 PAK file"
+	depends on BR2_PACKAGE_HEXEN2
+	help
+	  This will install the shareware pak data file for the Hexen2 game.
+
+	  The pak file will be placed in the /usr/games directory.

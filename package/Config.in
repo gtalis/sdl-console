@@ -7,6 +7,7 @@ endmenu
 menu "First Person Shooter"
 	source "package/doom-wad/Config.in"
 	source "package/hexen2/Config.in"
+	source "package/hexen2-pak/Config.in"
 	source "package/prboom/Config.in"
 endmenu
 
