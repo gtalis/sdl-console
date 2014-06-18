@@ -1,0 +1,20 @@
+config BR2_PACKAGE_MEANDMYSHADOW
+	bool "Me and my shadow"
+	select BR2_PACKAGE_LIBARCHIVE
+	select BR2_PACKAGE_LIBCURL
+	select BR2_PACKAGE_OPENSSL
+	select BR2_PACKAGE_SDL
+	select BR2_PACKAGE_SDL_IMAGE
+	select BR2_PACKAGE_SDL_GFX
+	select BR2_PACKAGE_SDL_MIXER
+	select BR2_PACKAGE_SDL_NET
+
+	help
+	  Me and My Shadow is a free libre puzzle/platform game in which
+	  you try to reach the exit by solving puzzles. Spikes, moving blocks,
+	  fragile blocks and much more stand between you and the exit.
+	  Record your moves and let your shadow mimic them to reach blocks
+	  you couldn't reach alone.
+
+	  http://meandmyshadow.sourceforge.net/
+

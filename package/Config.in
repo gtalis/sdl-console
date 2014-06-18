@@ -23,6 +23,7 @@ endmenu
 menu "Puzzle"
 	source "package/lbreakout2/Config.in"
 	source "package/ltris/Config.in"
+	source "package/meandmyshadow/Config.in"
 	source "package/rezerwar/Config.in"
 	source "package/rubix/Config.in"
 endmenu

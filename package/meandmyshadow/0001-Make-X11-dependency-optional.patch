@@ -1,0 +1,60 @@
+From 92af6cdec06a18b06a010a5c0dfe68795c7ad339 Mon Sep 17 00:00:00 2001
+From: Gilles Talis <gilles.talis@gmail.com>
+Date: Wed, 18 Jun 2014 07:41:09 +0200
+Subject: [PATCH] Make X11 dependency optional
+
+Signed-off-by: Gilles Talis <gilles.talis@gmail.com>
+---
+ CMakeLists.txt    |    2 ++
+ src/Functions.cpp |    4 ++++
+ 2 files changed, 6 insertions(+)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index ffb3dc4..3a94d39 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -21,7 +21,9 @@ Find_Package(OpenSSL REQUIRED)
+ if(HARDWARE_ACCELERATION)
+ 	Find_Package(OpenGL REQUIRED)
+ else(HARDWARE_ACCELERATION)
++if (USE_X11)
+ 	INCLUDE(FindX11)
++endif(USE_X11)
+ endif(HARDWARE_ACCELERATION)
+ 
+ #Add the include dirs of the libraries.
+diff --git a/src/Functions.cpp b/src/Functions.cpp
+index aa5a3a7..d56403e 100644
+--- a/src/Functions.cpp
++++ b/src/Functions.cpp
+@@ -81,9 +81,11 @@ using namespace std;
+ 
+ //Workaround for the resizing below 800x600 for X systems.
+ #ifdef __linux__
++#ifdef USE_X11
+ #include<X11/Xlib.h>
+ #include<X11/Xutil.h>
+ #endif
++#endif
+ 
+ //Initialise the imagemanager.
+ //The ImageManager is used to prevent loading images multiple times.
+@@ -424,6 +426,7 @@ void configureWindow(bool initial){
+ 	SDL_GetWMInfo(&wmInfo);
+ 	
+ #ifdef __linux__
++#ifdef USE_X11
+ 	//We assume that a linux system running meandmyshadow is also running an Xorg server.
+ 	if(wmInfo.subsystem==SDL_SYSWM_X11){
+ 		//Create the size hints to give to the window.
+@@ -449,6 +452,7 @@ void configureWindow(bool initial){
+ 		//No X11 so an unsupported window manager.
+ 		cerr<<"WARNING: Unsupported window manager."<<endl;
+ 	}
++#endif
+ #elif defined(WIN32)
+ 	//We overwrite the window proc of SDL
+ 	WNDPROC wndproc=(WNDPROC)GetWindowLong(wmInfo.window,GWL_WNDPROC);
+-- 
+1.7.10.4
+
