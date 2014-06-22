@@ -1,0 +1,26 @@
+From 6a5a3c2667557d1a9ecd360e6e5aa58392f701da Mon Sep 17 00:00:00 2001
+From: Gilles Talis <gilles.talis@gmail.com>
+Date: Wed, 19 Dec 2012 10:50:28 -0800
+Subject: [PATCH] Fixed compilation error in menu.h
+
+Signed-off-by: Gilles Talis <gilles.talis@gmail.com>
+---
+ src/menu.h |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+diff --git a/src/menu.h b/src/menu.h
+index 3c67c45..7c7ab8e 100644
+--- a/src/menu.h
++++ b/src/menu.h
+@@ -207,7 +207,7 @@ public:
+
+   bool isToggled(int id);
+
+-  void Menu::get_controlfield_key_into_input(MenuItem *item);
++  void get_controlfield_key_into_input(MenuItem *item);
+
+   void draw   ();
+   void draw_item(int index, int menu_width, int menu_height);
+--
+1.7.4.1
+

@@ -1,3 +1,5 @@
+source "package/busybox/Config.in"
+
 menu "Games packages"
 
 menu "Board Games"
@@ -17,6 +19,7 @@ menu "Platformer & Shoot'em'up"
 	source "package/paintown/Config.in"
 	source "package/opentyrian/Config.in"
 	source "package/opentyrian-data/Config.in"
+	source "package/supertux/Config.in"
 endmenu
 
 
