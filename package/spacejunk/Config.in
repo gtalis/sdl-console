@@ -1,0 +1,10 @@
+config BR2_PACKAGE_SPACEJUNK
+	bool "Spacejunk"
+	select BR2_PACKAGE_SDL
+	select BR2_PACKAGE_SDL_MIXER
+	help
+	  Spacejunk is a computer game about traveling in 2D planetary systems.
+	  The player must collect drifting garbage by navigating through the
+	  gravitational fields of planets and stars.
+
+	  http://spacejunk.sourceforge.net/

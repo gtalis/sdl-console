@@ -29,6 +29,7 @@ menu "Puzzle"
 	source "package/meandmyshadow/Config.in"
 	source "package/rezerwar/Config.in"
 	source "package/rubix/Config.in"
+	source "package/spacejunk/Config.in"
 endmenu
 
 endmenu

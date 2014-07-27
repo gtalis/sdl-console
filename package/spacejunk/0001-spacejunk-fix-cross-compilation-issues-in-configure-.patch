@@ -1,0 +1,87 @@
+From cd6366bb6ced11b4108aeaedbee0bf194bf2a4ae Mon Sep 17 00:00:00 2001
+From: Gilles Talis <gilles.talis@gmail.com>
+Date: Sun, 27 Jul 2014 22:48:20 +0200
+Subject: [PATCH] spacejunk: fix cross-compilation issues in configure and
+ Makefiles
+
+Signed-off-by: Gilles Talis <gilles.talis@gmail.com>
+---
+ configure               |    6 +++---
+ guichan/sdl/Makefile.in |    2 +-
+ sge030809/Makefile.in   |    2 +-
+ src/Makefile.in         |    2 +-
+ 4 files changed, 6 insertions(+), 6 deletions(-)
+
+diff --git a/configure b/configure
+index 593aa28..2926de1 100755
+--- a/configure
++++ b/configure
+@@ -16396,7 +16396,7 @@ if ${ac_cv_lib_SDL_SDL_Init+:} false; then :
+   $as_echo_n "(cached) " >&6
+ else
+   ac_check_lib_save_LIBS=$LIBS
+-LIBS="-lSDL `sdl-config --static-libs` $LIBS"
++LIBS="-lSDL `$SDL_CONFIG --static-libs` $LIBS"
+ cat confdefs.h - <<_ACEOF >conftest.$ac_ext
+ /* end confdefs.h.  */
+ 
+@@ -16443,7 +16443,7 @@ if ${ac_cv_lib_SDL_image_IMG_Load+:} false; then :
+   $as_echo_n "(cached) " >&6
+ else
+   ac_check_lib_save_LIBS=$LIBS
+-LIBS="-lSDL_image `sdl-config --static-libs` $LIBS"
++LIBS="-lSDL_image `$SDL_CONFIG --static-libs` $LIBS"
+ cat confdefs.h - <<_ACEOF >conftest.$ac_ext
+ /* end confdefs.h.  */
+ 
+@@ -16490,7 +16490,7 @@ if ${ac_cv_lib_SDL_mixer_Mix_OpenAudio+:} false; then :
+   $as_echo_n "(cached) " >&6
+ else
+   ac_check_lib_save_LIBS=$LIBS
+-LIBS="-lSDL_mixer `sdl-config --static-libs` $LIBS"
++LIBS="-lSDL_mixer `$SDL_CONFIG --static-libs` $LIBS"
+ cat confdefs.h - <<_ACEOF >conftest.$ac_ext
+ /* end confdefs.h.  */
+ 
+diff --git a/guichan/sdl/Makefile.in b/guichan/sdl/Makefile.in
+index 1bcdf35..48cf893 100644
+--- a/guichan/sdl/Makefile.in
++++ b/guichan/sdl/Makefile.in
+@@ -228,7 +228,7 @@ top_build_prefix = @top_build_prefix@
+ top_builddir = @top_builddir@
+ top_srcdir = @top_srcdir@
+ noinst_LTLIBRARIES = libguichan_sdl.la
+-INCLUDES = -I$(top_srcdir)/guichan/include `sdl-config --cflags`
++INCLUDES = -I$(top_srcdir)/guichan/include `$(SDL_CONFIG) --cflags`
+ @DEBUG_TRUE@AM_CFLAGS = -g -fno-inline
+ @DEBUG_TRUE@AM_CPPFLAGS = -g -fno-inline
+ 
+diff --git a/sge030809/Makefile.in b/sge030809/Makefile.in
+index 609c2b0..c2ab4ea 100644
+--- a/sge030809/Makefile.in
++++ b/sge030809/Makefile.in
+@@ -231,7 +231,7 @@ top_build_prefix = @top_build_prefix@
+ top_builddir = @top_builddir@
+ top_srcdir = @top_srcdir@
+ noinst_LTLIBRARIES = libsge.la
+-INCLUDES = -I. `sdl-config --cflags` 
++INCLUDES = -I. `$(SDL_CONFIG) --cflags` 
+ libsge_la_SOURCES = \
+ 	sge_surface.cpp \
+ 	sge_primitives.cpp \
+diff --git a/src/Makefile.in b/src/Makefile.in
+index afd21df..6dd580e 100644
+--- a/src/Makefile.in
++++ b/src/Makefile.in
+@@ -348,7 +348,7 @@ sjsound_CPPFLAGS = -I$(top_srcdir)/guichan/include -I$(top_srcdir)/sge030809 $(S
+ 
+ # set the include path found by configure
+ INCLUDES = @mingwincludes@ $(all_includes)
+-MYSDL_LIBS = @mingwldadd@ `sdl-config --libs` $(top_builddir)/sge030809/libsge.la -lSDL_mixer -lSDL_image -lm
++MYSDL_LIBS = @mingwldadd@ `$(SDL_CONFIG) --libs` $(top_builddir)/sge030809/libsge.la -lSDL_mixer -lSDL_image -lm
+ noinst_HEADERS = global.h graphic.h vector2d.h starship.h resourcemanager.h \
+ 	serializer.h bodyfactory.h collist.h pmask.h collisionengine.h path.h inputcontrol.h \
+ 	functionexts.h timer.h physicbody.h gamebody.h pathdrawer.h bar.h gamecontrols.h \
+-- 
+1.7.10.4
+
