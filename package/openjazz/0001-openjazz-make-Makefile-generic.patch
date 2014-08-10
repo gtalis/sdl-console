@@ -1,0 +1,41 @@
+From 7121df65bd0c39720a3f097df58070116ccb711d Mon Sep 17 00:00:00 2001
+From: Gilles Talis <gilles.talis@gmail.com>
+Date: Sun, 10 Aug 2014 13:04:39 +0200
+Subject: [PATCH] openjazz: make Makefile generic
+
+Signed-off-by: Gilles Talis <gilles.talis@gmail.com>
+---
+ Makefile |    9 +++++++--
+ 1 file changed, 7 insertions(+), 2 deletions(-)
+
+diff --git a/Makefile b/Makefile
+index 0153a1f..faf9331 100644
+--- a/Makefile
++++ b/Makefile
+@@ -1,5 +1,10 @@
+ # OpenJazz makefile
+ 
++(CXX) ?= g++
++(CXX_EXTRA_FLAGS) ?= -DUSE_SOCKETS -DLOWERCASE_FILENAMES -DUPPERCASE_FILENAMES
++(CXXFLAGS) ?= -g -Wall -O3 -fsigned-char $(CXX_EXTRA_FLAGS) -I$(INCLUDE) `sdl-config --cflags` -Isrc
++(LDFLAGS)  ?= `sdl-config --libs` -lz
++
+ objects = \
+ 	src/game/clientgame.o src/game/game.o src/game/gamemode.o \
+ 	src/game/localgame.o src/game/servergame.o \
+@@ -35,10 +40,10 @@ objects = \
+ 
+ 
+ OpenJazz: $(objects)
+-	cc -Wall -o OpenJazz -lSDL -lstdc++ -lz $(objects)
++	$(CXX) $(CXXFLAGS) -o OpenJazz $(objects) $(LDFLAGS)
+ 
+ %.o: %.cpp
+-	cc -Wall -DUSE_SOCKETS -DSCALE -Isrc -O2 -c $< -o $@
++	$(CXX) $(CXXFLAGS) -c $< -o $@
+ 
+ clean:
+ 	rm -f OpenJazz $(objects)
+-- 
+1.7.10.4
+

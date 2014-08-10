@@ -1,0 +1,13 @@
+config BR2_PACKAGE_OPENJAZZ
+	bool "OpenJazz"
+	depends on BR2_INSTALL_LIBSTDCPP
+	select BR2_PACKAGE_SDL
+	select BR2_PACKAGE_ZLIB
+	help
+	  OpenJazz is a free, open-source version of the classic
+	  Jazz Jackrabbit games.
+
+	  http://www.alister.eu/jazz/oj/
+
+comment "OpenJazz requires a toolchain w/ C++"
+	depends on !(BR2_INSTALL_LIBSTDCPP)
