@@ -1,0 +1,35 @@
+From 6dc2655f0536eefd3773db48e8d46d5fc280567d Mon Sep 17 00:00:00 2001
+From: Gilles Talis <gilles.talis@gmail.com>
+Date: Thu, 14 Aug 2014 18:50:33 +0200
+Subject: [PATCH] legend of edgar: fix sdl-config and msgfmt lookup paths
+
+Signed-off-by: Gilles Talis <gilles.talis@gmail.com>
+---
+ makefile |    4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/makefile b/makefile
+index 08a4882..df8e4c0 100644
+--- a/makefile
++++ b/makefile
+@@ -42,7 +42,7 @@ else
+ CFLAGS = -Wall -pedantic -DVERSION=$(VERSION) -DRELEASE=$(RELEASE) -DDEV=$(DEV) -DINSTALL_PATH=\"$(DATA_DIR)\" -DLOCALE_DIR=\"$(LOCALE_DIR)\" -DPAK_FILE=\"$(PAK_FILE)\" -DUNIX=$(UNIX)
+ endif
+ 
+-LFLAGS = `sdl-config --libs` -lSDL -lSDL_image -lSDL_mixer -lSDL_ttf -lz -lm
++LFLAGS = `$(SDL_PREFIX)/sdl-config --libs` -lSDL -lSDL_image -lSDL_mixer -lSDL_ttf -lz -lm
+ 
+ TILE_OBJS  = tile_creator.o save_png.o
+ PAK_OBJS   = pak_creator.o
+@@ -104,7 +104,7 @@ makefile.dep : src/*/*.h src/*.h
+ 	$(CC) $(CFLAGS) -c -s $<
+ 	
+ %.mo: %.po
+-	msgfmt -c -o $@ $<
++	$(HOST_BINDIR)/msgfmt -c -o $@ $<
+ 
+ # linking the program.
+ $(PROG): $(MAIN_OBJS) $(CORE_OBJS)
+-- 
+1.7.10.4
+
