@@ -1,0 +1,15 @@
+config BR2_PACKAGE_EDGAR
+	bool "Legend of Edgar"
+	select BR2_PACKAGE_SDL
+	select BR2_PACKAGE_SDL_IMAGE
+	select BR2_PACKAGE_SDL_MIXER
+	select BR2_PACKAGE_SDL_TTF
+	select BR2_PACKAGE_ZLIB
+	help
+	  OpenJazz is a free, open-source version of the classic
+	  Jazz Jackrabbit games.
+
+	  http://www.alister.eu/jazz/oj/
+
+comment "OpenJazz requires a toolchain w/ C++"
+	depends on !(BR2_INSTALL_LIBSTDCPP)

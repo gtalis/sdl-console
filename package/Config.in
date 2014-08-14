@@ -16,6 +16,7 @@ endmenu
 
 menu "Platformer & Shoot'em'up"
 	source "package/c-dogs/Config.in"
+	source "package/edgar/Config.in"
 	source "package/paintown/Config.in"
 	source "package/opentyrian/Config.in"
 	source "package/openjazz/Config.in"
