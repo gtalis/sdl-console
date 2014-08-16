@@ -1,0 +1,13 @@
+config BR2_PACKAGE_ADVANCEMAME
+	bool "AdvanceMAME"
+	select BR2_PACKAGE_SDL
+	select BR2_PACKAGE_ZLIB
+	select BR2_PACKAGE_SLANG
+	select BR2_PACKAGE_EXPAT
+	select BR2_PACKAGE_NCURSES
+	select BR2_PACKAGE_FREETYPE
+	help
+	  AdvanceMAME is a port of the MAME and MESS emulators for
+	  Arcade Monitors and TVs but also for normal PC Monitors
+
+	  http://advancemame.sourceforge.net/

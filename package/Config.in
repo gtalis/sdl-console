@@ -6,6 +6,10 @@ menu "Board Games"
 	source "package/gnuchess/Config.in"
 endmenu
 
+menu "Emulators"
+	source "package/advancemame/Config.in"
+endmenu
+
 menu "First Person Shooter"
 	source "package/doom-wad/Config.in"
 	source "package/hexen2/Config.in"

@@ -1,0 +1,30 @@
+From dc4350a642663b5ae3fa0b26866c1e13d9bf5e10 Mon Sep 17 00:00:00 2001
+From: Gilles Talis <gilles.talis@gmail.com>
+Date: Sat, 16 Aug 2014 09:48:52 +0200
+Subject: [PATCH] advancemame: force mandir and docdir to depend on
+ datarootdir
+
+Signed-off-by: Gilles Talis <gilles.talis@gmail.com>
+---
+ configure |    4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/configure b/configure
+index a048290..dfa6857 100755
+--- a/configure
++++ b/configure
+@@ -9014,9 +9014,9 @@ CONF_LIB_JEVENT=$ac_lib_jevent
+ # Final
+ CONF_LIB_DIRECT=$ac_lib_direct_flag
+ 
+-mandir='${prefix}/man'
++mandir='${datarootdir}/man'
+ 
+-docdir='${prefix}/doc'
++docdir='${datarootdir}/doc'
+ 
+ ac_config_files="$ac_config_files Makefile"
+ 
+-- 
+1.7.10.4
+
